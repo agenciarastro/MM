@@ -15,9 +15,6 @@ body {color:@text; font: 100%/1.2 @sans-serif; background:url(../images/layout/b
 	&.cozinha {background-position:22px -66px;}}
 .tooltip {background:@white; color:@red; padding:5px 7px; .border-radius; position:absolute; height:22px; top:0; left:0; opacity:0; z-index:2; font-size:10px; white-space:nowrap;}
 li, a {.transition;}
-.modalbox {width:100%; height:100%; z-index:3; position:fixed; top:0; left:0;
-	.close {padding:5px 7px; background:@red; color:@white; display:block; position:fixed; top:20px; right:20px; z-index:5;}
-	iframe {position:absolute; width:100%; height:100%; z-index:3; border:0;}}
 #response {display:block; clear:both;}
 
 /*********************
@@ -67,7 +64,6 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 .mainmenu {.col(65%); margin:0 0 0 7%; height:100%;
 	li {.lih; width:16%; height:100%;
 		a {font-family:@helvetica;color:@white; text-decoration:none; border-bottom:1px solid transparent; padding:27.7% 20%; display:block; text-align:center; white-space:nowrap; background:url(../images/menu-active.png) 50% 110% no-repeat;
-		&:hover, &:focus {color:@white; background-position:50% 101%;}}}
 	li.current-menu-item a,
 	li.current_page_item a,
 	li.current-page-ancestor a {background-position:50% 102%;}
@@ -186,11 +182,51 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 			figure {max-height:150px; overflow:hidden;
     			figcaption {position:absolute; bottom:-100%; left:0; padding:2px 10px; opacity:0; .transition; background:@red; color:@white; font-size:10px; text-transform:uppercase; width:100%;}}}
 	}
+/*Cursos*/
+	.post-type-archive-cursos, .search-results {
 	.post-type-archive-blog,
 	.post-type-archive-cursos,
 	.search-results {
 	    .page-title {font-size:60px; color:@red; text-align:center;}
 	    .how-works{display: block; text-align: right; .center(300px); font:16px 'Open Sans',sans-serif;}
+	    #content {float:left; clear:both; width:100%;
+	        ul {margin:10px auto; float:none; .col(75%)}}
+	        
+	    .not-logged { #cadastro {display:none;}}
+	    #parcelas {display:none;}
+	    #response {padding:5px; background:@white; border:1px solid #ccc; margin-bottom:10px; word-break:break-all; display:none;}
+	    #searchform {width:30%; left:35%;
+	    	input {float:left;}
+	    	input[type=submit] {background:@red url(../images/search.png) center center no-repeat; width:20%; height:30px; border:0; text-indent:100%; font-size:0;
+	    	    &:hover {background-color:darken(@red, 10%);}}
+	    	input[type=text] {border:1px solid darken(@white, 20%); padding:0 5px; height:30px; width:79%; margin-right:1%;}
+	    }
+	                
+	    .sidebar {.colr(25%); padding:10px 20px;
+	        form {padding:10px 0; float:left; width:100%; clear:both; border-top:2px solid @red; border-bottom:2px solid @red;}
+	        nav {
+	            a {padding:5px 10px; margin-right:5px; border:2px solid @red; border-bottom:0; display:inline-block;
+	                &.active {background:@red; color:@white;}}}}
+	                
+	    form {
+	        p {margin:0 0 10px 0;}
+	        select {padding:2px; margin-bottom:7px;}
+	        .small {font-size:13px;}
+	        fieldset {margin:5px 0;}
+    	    label {display:block;}
+    	    input {border:1px solid darken(@white, 20%); padding:5px; height:30px; width:100%; margin-bottom:5px;}
+    	    input[type=checkbox], input[type=radio] {width:20px; height:14px; border:0;}
+    	    textarea {max-width:400px; height:140px;}
+    	    input[type=submit] {border:0; background:@red; color:@white; float:right; padding:10px 20px; width:auto; height:auto;
+    	    	&:hover {background:darken(@red, 10%);}
+    	    	&:active {top:1px;}}}
+	        
+	    .blognav {max-width:95%; margin:0 auto; clear:both; height:30px;
+	        li {z-index: 9; position: relative; margin-top: 5px;}
+	        .active-handler {display: block; width:100%; background: #fff; position: relative; border:1px solid #ccc; padding: 3px 10px}
+	        .categories{display:none; width:96%; position:absolute; padding-top: 40px; top:40px; background:#fff; z-index:4; border:1px solid #ccc; padding:3px 3px;
+	        	a {display: block;
+	        		&:hover {background:#eee;}}}
 	    #content {
 	        ul {margin:20px auto; float:none;}}
 	    .blognav {
@@ -201,9 +237,9 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 	        .dificuldade {margin-left:20px; padding-right: 10px;}
 	        .categorias { border-right:1px solid #ccc; padding-right:10px;}
 		    .dificuldade, .categorias {&:hover ul {display:block!important;}}}
-	    .post {background:@white; border:1px solid darken(@white, 20%); 
-	        img {width:100%; height:auto;}
-	        h2 {line-height:1.2; margin:10px 0 15px 0;}
+		    
+	    .post {background:@white; border:1px solid darken(@white, 20%); .col(24%); margin:0 0 10px 1%;
+	        h2 {line-height:1.2; margin:10px 0 15px 0; height:50px;}
     	    &:hover {
                 figcaption, .favorite-post {opacity:1;}
                 .favorite-post {top:0;}}
@@ -244,7 +280,6 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 		}}
 	.search-results	{
 	    .post {width:23%; margin:10px 1%;
-	        figure {height:150px;}
 	        .post-title {height:50px;}}
 	}
 	.single-blog, .single-tribe_events {
