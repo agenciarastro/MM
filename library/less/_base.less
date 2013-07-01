@@ -186,6 +186,36 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 			figure {max-height:150px; overflow:hidden;
     			figcaption {position:absolute; bottom:-100%; left:0; padding:2px 10px; opacity:0; .transition; background:@red; color:@white; font-size:10px; text-transform:uppercase; width:100%;}}}
 	}
+	.single-blog, .single-tribe_events {
+	    #content {padding: 0; ul {float:left;}}
+		article {width:100%; float:left; max-width:650px; margin-right:40px; background:@white; border:1px solid darken(@white, 20%);
+			h2 {font-size:25px;}
+			figure {overflow:hidden; height:235px;
+				.fluid-width-video-wrapper {height:235px;}}
+			img {width:100%; height:auto;}}
+			.single-title, .meta, section {width:100%; max-width:600px; padding-left:80px;}
+			.meta, .meta a {font-size:12px;}
+			.meta {margin-bottom:20px;}
+			date {position:absolute; top:235px; left:20px; background:url(../images/date-bg.png) top center no-repeat; width:40px; height:90px; padding:2px; color:@white;
+				span {display:block; text-align:center; clear:both;}
+				.dia {font-size:32px;}
+				.mes {font-size:18px;}}
+		aside {.col(250px); .clearfix;
+			h3 {color:@red; font-size:27px; margin:10px 0;}
+			ul {margin:0; width:100%;}}}
+
+    .gallery {width:124.6%; height:430px; overflow:hidden; margin:0 -80px;
+        br {display:none;}
+        .gallery-item {position:absolute; top:0; left:0; opacity:0; margin:0; padding:0; .transition(1s, opacity, linear); z-index:1;
+            &.active {opacity:1;}}
+        &:hover nav {display:block;}
+        nav {height:100%; width:100%; position:absolute; top:0; left:0; margin:0; padding:0; z-index:3; display:none;
+            a {text-indent:100%; font-size:0; width:25%; height:100%; position:absolute; line-height:300px;}
+            .prev {background:url(../images/prev.png) left center no-repeat; left:0;}
+            .next {background:url(../images/next.png) right center no-repeat; right:0;}}
+    }
+
+/* Blog e cursos */
 	.post-type-archive-blog,
 	.post-type-archive-cursos,
 	.search-results {
@@ -211,7 +241,7 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 	        h2, article {padding:0 5px;}
 	        h2 {font-size:21px; text-align:center;}
 	        .label-confirmado {position:absolute; top:0; left:0; z-index:2;}}}
-	        
+/* Cursos */
     .post-type-archive-cursos {
 	    #content {float:left; clear:both; width:100%;}
         .post {.col(220px); margin:0 20px 20px 0;}
@@ -247,36 +277,8 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 	        figure {height:150px;}
 	        .post-title {height:50px;}}
 	}
-	.single-blog, .single-tribe_events {
-	    #content {padding: 0; ul {float:left;}}
-		article {width:100%; float:left; max-width:650px; margin-right:40px; background:@white; border:1px solid darken(@white, 20%);
-			h2 {font-size:25px;}
-			figure {overflow:hidden; height:235px;
-				.fluid-width-video-wrapper {height:235px;}}
-			img {width:100%; height:auto;}}
-			.single-title, .meta, section {width:100%; max-width:600px; padding-left:80px;}
-			.meta, .meta a {font-size:12px;}
-			.meta {margin-bottom:20px;}
-			date {position:absolute; top:235px; left:20px; background:url(../images/date-bg.png) top center no-repeat; width:40px; height:90px; padding:2px; color:@white;
-				span {display:block; text-align:center; clear:both;}
-				.dia {font-size:32px;}
-				.mes {font-size:18px;}}
-		aside {.col(250px); .clearfix;
-			h3 {color:@red; font-size:27px; margin:10px 0;}
-			ul {margin:0; width:100%;}}}
-
-    .gallery {width:124.6%; height:430px; overflow:hidden; margin:0 -80px;
-        br {display:none;}
-        .gallery-item {position:absolute; top:0; left:0; opacity:0; margin:0; padding:0; .transition(1s, opacity, linear); z-index:1;
-            &.active {opacity:1;}}
-        &:hover nav {display:block;}
-        nav {height:100%; width:100%; position:absolute; top:0; left:0; margin:0; padding:0; z-index:3; display:none;
-            a {text-indent:100%; font-size:0; width:25%; height:100%; position:absolute; line-height:300px;}
-            .prev {background:url(../images/prev.png) left center no-repeat; left:0;}
-            .next {background:url(../images/next.png) right center no-repeat; right:0;}}
-    }
     
-	/*courses single page*/
+/* single cursos */
 	.single-cursos{
 		.feature {
 		    p {margin:0; padding:0;}
@@ -385,6 +387,7 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 				.bottom {border-left:75px solid transparent; border-right:75px solid transparent; border-top:40px solid @red; width:0; }}}
 	}
 	#panoDIV {height:500px;}
+	
 /*A casa*/
 	body.page-template-acasa-php {
 		h2 {color:@red; .center(940px); font-size:43px; padding-left:20px;}
@@ -462,32 +465,20 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 				&:hover {text-decoration:underline;}}}
 	}
 
-
-/*cursos*/
-
 	
 
 /*********************
 08. POSTS & CONTENT STYLES
 *********************/
-
-#content {}
-	.single-title,
-	.page-title {}
-	.archive-title {}
-
 	/* entry content */
 	.entry-content {
 		img {margin: 0 0 1.5em 0; max-width: 100%; height: auto;}
-
 		.alignleft, img.alignleft {}
 		.alignright, img.alignright {}
 		.aligncenter, img.aligncenter {}
 
 		video, object {max-width: 100%; height: auto;}
-
 		pre {background: #eee; border: 1px solid #cecece; padding: 10px;}
-
 	} /* end .entry-content */
 
 	.wp-caption {background: #eee; padding: 5px;
@@ -496,20 +487,6 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 		p.wp-caption-text {font-size: 0.85em; margin: 4px 0 7px; text-align: center;}
 	} /* end .wp-caption */
 
-	/* image gallery styles */
-	.gallery {
-		dl {}
-		dt {}
-		dd {}
-	} /* end .gallery */
-
-	/* gallery caption styles */
-	.gallery-caption {}
-
-	.size-full {}
-	.size-large {}
-	.size-medium {}
-	.size-thumbnail {}
 	
 /******************************************************************
 09. PAGE NAVI STYLES
@@ -532,8 +509,6 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 ******************************************************************/
 
 /* h3 comment title */
-#comments {}
-.comment-nav {}
 .commentlist {
 	li {clear: both; overflow: hidden; list-style-type: none; margin-bottom: 1.5em; padding: 0.7335em 10px;
 		&:last-child {margin-bottom: 0;}
@@ -544,28 +519,10 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 	li:not(.depth-1) {margin-right: -10px; margin-left: -10px; margin-top: 0; padding-bottom: 0;}
 
 	/* general comment classes */
-	.alt {}
 	.odd {background: #eee;}
 	.even {background: #fefefe;}
-	.parent {}
-	.comment {}
-	.children {}
-	.pingback {}
-	.bypostauthor {}
-	.comment-author {}
-	.comment-author-admin {}
-	.thread-alt {}
-	.thread-odd {}
-	.thread-even {}
-	img.photo {}
 	img.avatar {position: absolute; left: 10px; padding: 2px; border: 1px solid #cecece; background: #fff;}
 	}
-
-	/* comment meta */
-	.comment-meta {}
-
-	.commentmetadata {}
-
 	/* comment content */
 	.comment_content {margin-left: 50px;
 		p {margin: 0.7335em 0 1.5em; font-size: 1em; line-height: 1.5em;}} 
@@ -590,23 +547,8 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 			
 		input[type=text], input[type=email], input[type=url] {max-width: 400px; min-width: 250px;}
 		textarea {resize: none; width: 97.3%; height: 150px;}}}
-
-	/* comment submit button */
-	#submit {}
-	
-	/* comment form title */
-	#comment-form-title {margin: 0 0 1.1em;}
-
-	/* cancel comment reply link */
-	#cancel-comment-reply {}
-
-	/* logged in comments */
-	.comments-logged-in-as {}
-
 	/* allowed tags */
 	#allowed_tags {margin: 1.5em 10px 0.7335em 0;}
-
-	/* no comments */
 	.nocomments {margin: 0 20px 1.1em;}
 	
 	
