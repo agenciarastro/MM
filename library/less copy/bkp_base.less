@@ -18,8 +18,6 @@ li, a {.transition;}
 .modalbox {width:100%; height:100%; z-index:3; position:fixed; top:0; left:0;
 	.close {padding:5px 7px; background:@red; color:@white; display:block; position:fixed; top:20px; right:20px; z-index:5;}
 	iframe {position:absolute; width:100%; height:100%; z-index:3; border:0;}}
-#response {display:block; clear:both;}
-
 /*********************
 03. LAYOUT & GRID STYLES
 *********************/
@@ -31,11 +29,10 @@ li, a {.transition;}
 04. LINK STYLES
 *********************/
 
-a {
+a, a:visited {
 	color: @link-color;
 	&:hover, &:focus {color: @link-hover;}
 	&:active {}
-	&:visited {}
 	&:link {}	/* mobile tap color */
 }
 
@@ -64,13 +61,13 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 /*********************
 07. NAVIGATION STYLES
 *********************/
-.mainmenu {.col(65%); margin:0 0 0 7%; height:100%;
-	li {.lih; width:16%; height:100%;
-		a {font-family:@helvetica;color:@white; text-decoration:none; border-bottom:1px solid transparent; padding:27.7% 20%; display:block; text-align:center; white-space:nowrap; background:url(../images/menu-active.png) 50% 110% no-repeat;
-		&:hover, &:focus {color:@white; background-position:50% 101%;}}}
-	li.current-menu-item a,
-	li.current_page_item a,
-	li.current-page-ancestor a {background-position:50% 102%;}
+.mainmenu {.col(55%); margin:0 0 0 10%; height:100%;
+	li {.lih; width:20%; height:100%;
+		a {font-family:@helvetica;color:@white; text-decoration:none; border-bottom:1px solid transparent; padding:33px 20%; display:block; text-align:center; white-space:nowrap;
+		&:hover, &:focus {color:@white; border-bottom:1px solid @white;}}}
+	li.current-menu-item,
+	li.current_page_item,
+	li.current-page-ancestor {border-bottom:1px solid @white;}
 }
 	
 .social {.colr(10%); height:100%;
@@ -86,7 +83,7 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 ********************/
 
 /*HOME*/
-.home, .error404 {
+.home {
 	.header {position:fixed; width:100%; z-index:1;}
 	#container, .jspPane, .single, .blocks {height:100%;}
 	#content {width:100%; overflow-x:auto; height:100%; padding-top:86px; /*max-height:580px;*/}
@@ -138,7 +135,7 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 			section {/*height:230px;*/ font-size:15px;}}}
 	@media only screen and (max-height: 630px) { .single hgroup {margin:10px 0 10px;} }
 	@media only screen and (max-height: 610px) { .single.manifesto article {font-size:15px;} .single figure, .single iframe {height:45%;} }
-	@media only screen and (max-height: 570px) { .header {height:76px;} #content {padding-top:76px;} .mainmenu li a {padding:23.5% 20%;} }
+	@media only screen and (max-height: 570px) { .header {height:76px;} #content {padding-top:76px;} .mainmenu li a {padding:22.5% 20%;} }
 	@media only screen and (max-height: 530px) { .manifesto .big {display:none;} }
 		
 	/*@media only screen and (min-height: 750px) { #content {max-height:600px;} .single figure {height:300px; img {margin-top:0;}} .jspPane, .blocks {max-height:560px;} .jspContainer {height:580px!important;} }
@@ -156,72 +153,54 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 /*BLOG*/
 	.post-type-archive-blog,
 	.single-blog,
-	.tax-blog_cat {
+	.tax-blog_cat,
+	body.search-results {
 		.page-title {color:@red; font-size:96px; line-height:1; text-align:center;}
-/*		#content {.center(940px); ul {float:left;}}*/
-		#content {padding:0 1%; .center(940px);}
+		#content {.center(940px); ul {float:left;}}
 		.blognav {.center(940px); clear:both; height:30px;
 			li {margin-right:10px; .lih;
 				a {color:darken(@white, 50%); text-decoration:none; font-size:13px;}}}
-				
-		/*.post {background:@white; border:1px solid darken(@white, 20%); .col(220px); margin:0 20px 20px 0; padding:15px;
+		.post {background:@white; border:1px solid darken(@white, 20%); .col(220px); margin:0 20px 20px 0; padding:15px;
 			&.fourth {margin-right:0;}
 			&:hover figcaption {bottom:0; opacity:1;}
 			h2 {font-size:17px; margin:5px 0 10px;
 				a {color:@text;
-					&:hover {color:@red;}}}*/
-							
-		.post {.col(23%); margin:0 1% 10px;
-		    h2 {min-height:50px;}
-			&:hover figcaption {bottom:0; opacity:1;}
-				a {color:@text;
-					&:hover {color:@red;}}
-			.meta,
-			.meta a {font-size:12px; text-decoration:none; color:@text; text-align:center; margin-bottom:5px;}
+					&:hover {color:@red;}}}
+			.meta, .meta a {font-size:12px; text-decoration:none; color:@text;}
 			.leave-reply {background:url(../images/comment-bubble.png) no-repeat; padding-left:20px;}
 			time {background:url(../images/date.png) no-repeat; padding-left:20px;}
-			/*figure {width:190px; height:150px; overflow:hidden;
+			figure {width:190px; height:150px; overflow:hidden;
 				img {width:100%; height:auto;}}
-			figcaption {position:absolute; bottom:-100%; left:0; padding:2px 10px; opacity:0; .transition; background:@red; color:@white; font-size:10px; text-transform:uppercase; width:100%;}*/
-			figure {max-height:150px; overflow:hidden;
-    			figcaption {position:absolute; bottom:-100%; left:0; padding:2px 10px; opacity:0; .transition; background:@red; color:@white; font-size:10px; text-transform:uppercase; width:100%;}}}
+			figcaption {position:absolute; bottom:-100%; left:0; padding:2px 10px; opacity:0; .transition; background:@red; color:@white; font-size:10px; text-transform:uppercase; width:100%;}}
 	}
-	.post-type-archive-blog,
-	.post-type-archive-cursos,
-	.search-results {
+	.post-type-archive-cursos {
 	    .page-title {font-size:60px; color:@red; text-align:center;}
 	    .how-works{display: block; text-align: right; .center(300px); font:16px 'Open Sans',sans-serif;}
-	    #content {
+	    #content {float:left; clear:both; width:100%;
 	        ul {margin:20px auto; float:none;}}
-	    .blognav {
+	    .blognav {max-width:95%; margin:0 auto; clear:both; height:30px;
+	        li {z-index: 9; position: relative; margin-top: 5px;}
+	        .active-handler {display: block; width: 220px;background: #fff; position: relative; border:1px solid #ccc; padding: 3px 10px}
+	        .categories{display: none; width:96%; position:absolute; padding-top: 40px; top:40px; background:#fff; z-index: 3; border:1px solid #ccc; padding:3px 3px;
+	        	a {display: block;
+	        		&:hover {background:#eee;}}}
 	        h3 {margin:0 0 5px 0; font-size:21px;}
-	        div {float:left; max-width:220px; width:46%;}
+	        div {float:left;}
 	        a {padding:2px 7px;
 	            &:hover, &.active {color:@red;}}
 	        .dificuldade {margin-left:20px; padding-right: 10px;}
 	        .categorias { border-right:1px solid #ccc; padding-right:10px;}
 		    .dificuldade, .categorias {&:hover ul {display:block!important;}}}
-	    .post {background:@white; border:1px solid darken(@white, 20%); 
-	        img {width:100%; height:auto;}
+	    .post {background:@white; border:1px solid darken(@white, 20%); .col(220px); margin:0 20px 20px 0;
 	        h2 {line-height:1.2; margin:10px 0 15px 0;}
     	    &:hover {
                 figcaption, .favorite-post {opacity:1;}
                 .favorite-post {top:0;}}
+	        figure, img {width:100%; height:auto;}
 	        figure {overflow:hidden;}
 	        h2, article {padding:0 5px;}
 	        h2 {font-size:21px; text-align:center;}
-	        .label-confirmado {position:absolute; top:0; left:0; z-index:2;}}}
-	        
-    .post-type-archive-cursos {
-	    #content {float:left; clear:both; width:100%;}
-        .post {.col(220px); margin:0 20px 20px 0;}
-        .blognav {max-width:95%; margin:0 auto; clear:both; height:30px;
-            li {z-index: 9; position: relative; margin-top: 5px;}
-            .active-handler {display: block; width:100%; background: #fff; position: relative; border:1px solid #ccc; padding: 3px 10px}
-            .categories{display:none; width:96%; position:absolute; padding-top: 40px; top:40px; background:#fff; z-index:4; border:1px solid #ccc; padding:3px 3px;
-            	a {display: block;
-            		&:hover {background:#eee;}}}}
-        figure {width:100%; height:auto;}
+	        .label-confirmado {position:absolute; top:0; left:0; z-index:2;}}
         figcaption {position:absolute; top:0; left:0; opacity:0; background:url(../images/transparencia.png); width:100%; height:100%; .transition; z-index:3;
             .detalhes {position:absolute; width:100%; height:100%; top:0; left:0; z-index:2;} 
             .blog_cat {top:50%; left:50%; width:60px; height:60px; margin:-30px; position:absolute; background-repeat:no-repeat; background-position:center center;
@@ -242,80 +221,37 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 		.wrapper{width: 90%;margin: 0 auto;
 			h2{color: #e63826;font-size: 43px;}
 		}}
-	.search-results	{
-	    .post {width:23%; margin:10px 1%;
-	        figure {height:150px;}
-	        .post-title {height:50px;}}
-	}
-	.single-blog, .single-tribe_events {
-	    #content {padding: 0; ul {float:left;}}
+				
+	.single-blog, .single-tribe_events, .single-cursos {
 		article {width:100%; float:left; max-width:650px; margin-right:40px; background:@white; border:1px solid darken(@white, 20%);
 			h2 {font-size:25px;}
 			figure {overflow:hidden; height:235px;
 				.fluid-width-video-wrapper {height:235px;}}
 			img {width:100%; height:auto;}}
-			.single-title, .meta, section {width:100%; max-width:600px; padding-left:80px;}
+			.single-title, .meta, section {width:100%; max-width:510px; padding-left:80px;}
 			.meta, .meta a {font-size:12px;}
-			.meta {margin-bottom:20px;}
 			date {position:absolute; top:235px; left:20px; background:url(../images/date-bg.png) top center no-repeat; width:40px; height:90px; padding:2px; color:@white;
 				span {display:block; text-align:center; clear:both;}
 				.dia {font-size:32px;}
 				.mes {font-size:18px;}}
-		aside {.col(250px); .clearfix;
-			h3 {color:@red; font-size:27px; margin:10px 0;}
-			ul {margin:0; width:100%;}}}
+		aside {.col(160px); .clearfix;
+			h3 {color:@red; font-size:17px;}
+			ul {margin:0;}}
 
-    .gallery {width:124.6%; height:430px; overflow:hidden; margin:0 -80px;
-        br {display:none;}
-        .gallery-item {position:absolute; top:0; left:0; opacity:0; margin:0; padding:0; .transition(1s, opacity, linear); z-index:1;
-            &.active {opacity:1;}}
-        &:hover nav {display:block;}
-        nav {height:100%; width:100%; position:absolute; top:0; left:0; margin:0; padding:0; z-index:3; display:none;
-            a {text-indent:100%; font-size:0; width:25%; height:100%; position:absolute; line-height:300px;}
-            .prev {background:url(../images/prev.png) left center no-repeat; left:0;}
-            .next {background:url(../images/next.png) right center no-repeat; right:0;}}
-    }
-    
-	/*courses single page*/
-	.single-cursos{
-		.feature {
-		    p {margin:0; padding:0;}
-		    img {height:auto;}
-		    iframe {min-height:420px;}
-			img, iframe{width: 111%; margin-left: -5.5%;}}
-		.content{.wrap();
-			.categories{li{float: left; margin:0 10px; a{text-decoration: none;}}}
-			.post{width: 70%; float: left; .main{background: #fff; float: left; padding: 0 5%;
-				h3{ font-size:35px; margin: 0; color: @red;}
-				ul{padding:0 20px;}}}}}
 
-	.course-infos{float: right; width: 26%; margin-left: 4%; min-height: 50px;
-		ul{margin: 0;}
-		li{height: 70px; border-bottom: 1px solid @red; padding: 0 0 0 20px;
-			.label{font-size: 15px; display: idnline-block;}
-			.info{font-size: 25px; color: @red; top: 20px; left: 20px; display: inline-block;}
-			.small{font-size: 15px!important;}}
-		a{display: block; width: 100%; height: 40px; text-transform: uppercase; text-align: center; color: #fff; text-decoration: none; background: @red; line-height: 40px;}}
 
-	.navigation_single{ width: 100%; height: 40px; float: left; padding-top: 20px;
-				.prev{display: inline-block;color: @red; a{text-decoration: none;}}
-				.next{display: inline-block; float: right;color: @red; a{text-decoration: none;}}}
-	/* end of courses single page*/
-
-	.fb-comments{margin-top:30px;}
-
+	}
 	#related-posts {
 		figure {background:@white; border:1px solid darken(@white, 20%); padding:5px;
 			img {width:100%; height:auto;}}
 		.post-title {text-transform:capitalize; margin-top:5px;
-			a {color:@text; text-decoration:none; font-size:23px; font-weight:normal;
+			a {color:@text; text-decoration:none; font-size:13px; font-weight:normal;
 				&:hover {text-decoration:underline;}}}}
 
     
     .single-tribe_events {
     	#content {width:100%; max-width:940px; margin:0 auto; margin-top:20px;}
     }
-
 				
 
 /*O Templo*/
@@ -439,16 +375,14 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 	}
 				
 /*Contato*/
-	body.page-template-contato-php, body.page-template-form-teste-php {
+	body.page-template-contato-php {
 		#content {.center(960px); font-size:14px;}
 		.page-title {font-size:70px; text-transform:uppercase; color:@red; margin:60px 0 20px;}
 		.col {.col(45%);}
 		.col-left {margin-right:3%;}
 		form {width:280px;
 			li {margin-bottom:5px;}
-			label {display:block; padding:5px;}
 			input,textarea {border:1px solid darken(@white, 20%); .border-radius; padding:5px; height:30px; width:280px;}
-			input[type=checkbox] {width:auto; background:transparent;}
 			textarea {max-width:400px; height:140px;}
 			input[type=submit] {border:0; background:@red; color:@white; float:right; padding:10px 20px; width:auto; height:auto;
 				&:hover {background:darken(@red, 10%);}
@@ -632,16 +566,4 @@ h5, .h5 {font-size: 0.846em; line-height: 2.09em; text-transform: uppercase; let
 .jspVerticalBar .jspArrow:focus {outline:none; }
 .jspCorner {float:left; height:100%; }
 * html .jspCorner {margin:0 -3px 0 0; }
-
-#sharrre { float:none; width: 180px; margin: 20px auto; }
-.sharrre { display: inline-block; margin:0 2%;}
-.sharrre .box { background:#fff; width:78px; color: #000;}
-.sharrre .box:active, #facebook .box:active, #googleplus .box:active { box-shadow:0 0 3px #333333; }
-.sharrre .count, .sharrre .share { display:inline-block; font-weight:bold; text-align:center; width:78px; border-top: 3px solid @red; }
-.sharrre .count:before, .sharrre .count:after { content:''; display:block; height:0; left:49%; position:absolute; width:0; }
-.sharrre .count:before { border:solid 7px transparent; border-top-color:#b2c6cc; bottom:-14px; margin-left:-7px; }
-.sharrre .count:after { border:solid 6px transparent; border-top-color:#e5eef2; bottom:-12px; margin-left:-6px; }
-.sharrre .share { background-color:@red;  color:#ffffff; font-size:13px; height:40px; line-height:34px;  }
-#facebook span { background:url(../images/icon-sprite.png) no-repeat; width:20px; height:20px; overflow:hidden; display:block; margin:5px auto;}
-#twitter span { background:url(../images/twitter.png) no-repeat; width:20px; height:20px; overflow:hidden; display:block; margin:5px auto;}
 

@@ -1,0 +1,38 @@
+/* *****************************************************************
+Site Name: Templo
+Author: Erik Dana @ Agencia Rastro
+
+Stylesheet: Main Stylesheet
+******************************************************************/
+
+@import "_normalize.less";
+@import "_mixins.less";
+
+/* BASE (MOBILE) SIZE */
+
+/*  styles in base.less*/
+@import "_grid.less";
+@import "_base.less";
+
+/* LARGER MOBILE DEVICES */
+@media only screen and (max-width: 680px) { @import "_mobile.less"; }
+
+/* TABLET & SMALLER LAPTOPS */
+@media only screen and (max-width: 768px) { @import "_tablet.less"; }
+
+/* DESKTOP */
+@media only screen and (max-width: 1030px) {  @import "_desktop.less"; }
+
+/* LARGE VIEWING SIZE */
+@media only screen and (max-width: 1240px) { @import "_large.less"; }
+
+/* RETINA (2x RESOLUTION DEVICES) */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) { @import "_2x.less"; }
+
+/* iPHONE 5 MEDIA QUERY */
+@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+/* PRINT STYLESHEET */
+@media print {	@import "_print.less"; }
